@@ -1,15 +1,38 @@
 /* jQuery doc ready
 
+var interval;
+var clockrunning = false;
+
+var timer = {
+    time: 30,
+    start: function() {
+        if (!clockrunning) {
+            interval = setInterval(timer.count, 1000);
+            clockrunning = true;
+        }
+    },
+
+    count: function() {
+        timer.time--;
+    },
+
+    stop: function() {
+        clearInterval(interval);
+        clockrunning = false;
+    }
+}
+
 DOM html start game (click HERE to start)
 
 DOM start game event listener click function(){
+DOM empty
 disable button
 startTimer()
 }
 
 function startTimer() {
-countdown timer for x amount of time
-DOM html the timer
+DOM html (30 seconds)
+timer.start()
 questions()
 }
 
