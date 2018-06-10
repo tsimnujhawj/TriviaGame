@@ -240,12 +240,14 @@ function startTimer() {
 };
 
     function win() {
+        timer.stop();
+        timer.time = 0;
         wins++
         $("#timerBox").html("You guessed RIGHT!");
         $("#wins").html(wins)
         setTimeout(function() {
         $("#timerBox").html("The next question is coming up...");
-    }, 1000);
+        }, 2000);
         setTimeout(function() {
             timer.time = 30;
             startTimer()
@@ -254,15 +256,17 @@ function startTimer() {
     }
     
     function lose() {
+        timer.stop();
+        timer.time = 0;
         losses++
         $("#timerBox").html("You guessed WRONG!");
         $("#losses").html(losses);
         setTimeout(function() {
         $("#timerBox").html("The correct answer was " + answer + "!");
-        }, 1000);
+        }, 500);
         setTimeout(function() {
         $("#timerBox").html("The next question is coming up...");
-    }, 1000);
+        }, 3000);
         setTimeout(function() {
             timer.time = 30;
             startTimer()
@@ -276,7 +280,7 @@ function startTimer() {
         $("#timeout").html(timeOut);
         setTimeout(function() {
         $("#timerBox").html("The next question is coming up...");
-        }, 1000)
+        }, 2000)
         setTimeout(function() {
             timer.time = 30;
             startTimer()
