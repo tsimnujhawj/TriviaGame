@@ -192,23 +192,21 @@ function startTimer() {
     answer = questionList.answer[randNum]
     wrongOptions = questionList.options[randNum]
     options = [wrongOptions[0], wrongOptions[1], wrongOptions[2], answer]
-    var transfer = options.slice();
 
     console.log(options);
     console.log(answer);
     console.log(question);
     console.log(wrongOptions);
     console.log(randNum);
-    console.log(shuffleOptions(transfer))
-    console.log(transfer.length);
+    console.log(shuffleOptions(options))
 
-    function shuffleOptions(transfer) {
-    for (var i = transfer.length - 1; i > 0; i--) {
+    function shuffleOptions(options) {
+    for (var i = options.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
-        var temp = transfer[i];
-        transfer[i] = transfer[j];
-        transfer[j] = temp;
-        return transfer;
+        var temp = options[i];
+        options[i] = options[j];
+        options[j] = temp;
+        return options;
         };
     };
     
