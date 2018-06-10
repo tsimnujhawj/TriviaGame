@@ -147,7 +147,7 @@ var opThree;
 var opFour;
 
 var timer = {
-    time: 5,
+    time: 30,
     start: function() {
         if (!clockrunning) {
             interval = setInterval(timer.count, 1000);
@@ -191,7 +191,7 @@ startTimer();
 
 function startTimer() {
     timer.start()
-    $("#timerBox").text("5");
+    $("#timerBox").text("30");
     questions()
     }
     
@@ -255,12 +255,17 @@ function startTimer() {
     }
     
     function outOfTime() {
+        timer.stop();
         timeOut++
         $("#timerBox").html("You're out of time!");
         $("#timeout").html(timeOut)
-        console.log("you ran out of time!")
-        setTimeout(function() {startTimer()}, 5000)
-        return timeOut
+        setTimeout(function() {
+        $("#timerBox").html("The next question is coming up...");
+        }, 1000)
+        setTimeout(function() {
+            timer.time = 30;
+            startTimer()
+        }, 8000)
     }
 
 }); // jQuery Document Ready Closing

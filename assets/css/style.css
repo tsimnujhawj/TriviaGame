@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 
 body {
     background-color: #414141;
@@ -15,19 +18,35 @@ body {
 }
 
 .timerStyle {
-    border: 3px solid #86BBD8;
+    margin: 0 auto;
+    font-size: 60px;
+    font-weight: bold;
 }
 
 .questionStyle {
-    border: 3px solid #86BBD8;
+    border: 1px solid #86BBD8;
+    font-size: 30px;
+    font-weight: bold;
+    color: #336699;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .answerStyle {
-    border: 3px solid #86BBD8;
+    border: 1px solid #86BBD8;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    color: #414141;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .scoreStyle {
     border: 3px solid #86BBD8;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 
