@@ -35,6 +35,10 @@ body {
     margin: 10px;
 }
 
-ul {
-    list-style-type: none;
+#optionsOne, #optionsTwo, #optionsThree, #optionsFour {
+    border: 1px solid #336699;
+    margin: 10px auto;
+    width: 25%;
+    text-align: center;
+    padding: 15px;
 }

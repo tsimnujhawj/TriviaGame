@@ -127,6 +127,8 @@ function outOfTime() {
 
 $( document ).ready(function() { // jQuery Document Ready Opening
 
+$("#options").hide()
+
 var interval;
 var clockrunning = false;
 var wins;
@@ -195,38 +197,89 @@ function startTimer() {
     $("#questionBox").html(question);
     shuffleOptions(options);
 
-    function shuffleOptions(options) {
-    for (var i = options.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = options[i];
-        options[i] = options[j];
-        options[j] = temp;
-        $("#options").append(options);
-        return options;
-        };
-    };
-    
-};
-
 console.log(options);
 console.log(answer);
 console.log(question);
 console.log(wrongOptions);
 console.log(randNum);
 console.log(shuffleOptions(options))
+
+    function shuffleOptions(options) {
+    for (var i = options.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = options[i];
+        options[i] = options[j];
+        options[j] = temp;
+        $("#options").show();
+        var opOne = $("#optionsOne").html(options[0]);
+        var opTwo = $("#optionsTwo").html(options[1]);
+        var opThree = $("#optionsThree").html(options[2]);
+        var opFour =  $("#optionsFour").html(options[3]);
+
+        opOne.attr("data-name", options[0]);
+        opTwo.attr("data-name", options[1]);
+        opThree.attr("data-name", options[2]);
+        opFour.attr("data-name", options[3]);
+        console.log(opOne.attr("data-name"))
+        buttons();
+        return options;
+        };
+    };
+    
+};
+
     
 
+    function buttons() {
+    $("#optionsOne").on("click", function() {
+        console.log("working 1");
+        // var chosenClick = this.event;
+        // if (chosenClick === answer){
+        //     win()
+        // } else if (chosenClick !== answer) {
+        //     lose()
+        // } else if (timer.time < 0) {
+        //     outOfTime()
+        // }
 
-    $("#optionsOne", "#optionsTwo", "#optionsThree", "#optionsFour").on("click", function() {
-        var chosenClick = this.event;
-        if (chosenClick === answer){
-            win()
-        } else if (chosenClick !== answer) {
-            lose()
-        } else if (timer.time < 0) {
-            outOfTime()
-        }
-    });
+        $("#optionsTwo").on("click", function() {
+            console.log("working 2");
+            // var chosenClick = this.event;
+            // if (chosenClick === answer){
+            //     win()
+            // } else if (chosenClick !== answer) {
+            //     lose()
+            // } else if (timer.time < 0) {
+            //     outOfTime()
+            // }
+        });
+
+    
+        $("#optionsThree").on("click", function() {
+            console.log("working 3");
+            // var chosenClick = this.event;
+            // if (chosenClick === answer){
+            //     win()
+            // } else if (chosenClick !== answer) {
+            //     lose()
+            // } else if (timer.time < 0) {
+            //     outOfTime()
+            // }
+        });
+
+        $("#optionsFour").on("click", function() {
+            console.log("working 4");
+            // var chosenClick = this.event;
+            // if (chosenClick === answer){
+            //     win()
+            // } else if (chosenClick !== answer) {
+            //     lose()
+            // } else if (timer.time < 0) {
+            //     outOfTime()
+            // }
+        });
+    })};
+
 
     function win() {
         wins++
