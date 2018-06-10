@@ -141,8 +141,13 @@ var answer;
 var wrongOptions;
 var options;
 
+var opOne;
+var opTwo;
+var opThree;
+var opFour;
+
 var timer = {
-    time: 30,
+    time: 5,
     start: function() {
         if (!clockrunning) {
             interval = setInterval(timer.count, 1000);
@@ -153,6 +158,9 @@ var timer = {
     count: function() {
         timer.time--;
         $("#timerBox").text(timer.time);
+        if (timer.time < 0) {
+            outOfTime()
+        }
     },
 
     stop: function() {
@@ -182,8 +190,8 @@ startTimer();
 });
 
 function startTimer() {
-    $("#timerBox").text("30");
     timer.start()
+    $("#timerBox").text("5");
     questions()
     }
     
@@ -195,114 +203,64 @@ function startTimer() {
     wrongOptions = questionList.options[randNum]
     options = [wrongOptions[0], wrongOptions[1], wrongOptions[2], answer]
     $("#questionBox").html(question);
-    shuffleOptions(options);
 
-console.log(options);
-console.log(answer);
-console.log(question);
-console.log(wrongOptions);
-console.log(randNum);
-console.log(shuffleOptions(options))
-
-    function shuffleOptions(options) {
     for (var i = options.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = options[i];
         options[i] = options[j];
         options[j] = temp;
         $("#options").show();
-        var opOne = $("#optionsOne").html(options[0]);
-        var opTwo = $("#optionsTwo").html(options[1]);
-        var opThree = $("#optionsThree").html(options[2]);
-        var opFour =  $("#optionsFour").html(options[3]);
+        opOne = $("#optionsOne").html(options[0]);
+        opTwo = $("#optionsTwo").html(options[1]);
+        opThree = $("#optionsThree").html(options[2]);
+        opFour =  $("#optionsFour").html(options[3]);
 
         opOne.attr("data-name", options[0]);
         opTwo.attr("data-name", options[1]);
         opThree.attr("data-name", options[2]);
         opFour.attr("data-name", options[3]);
-        console.log(opOne.attr("data-name"))
-        buttons();
-        return options;
-        };
     };
-    
+
+    $("#optionsOne").on("click", checkClick);
+    $("#optionsTwo").on("click", checkClick);
+    $("#optionsThree").on("click", checkClick);
+    $("#optionsFour").on("click", checkClick);
+
 };
 
-    
 
-    function buttons() {
-    $("#optionsOne").on("click", function() {
-        console.log("working 1");
-        // var chosenClick = this.event;
-        // if (chosenClick === answer){
-        //     win()
-        // } else if (chosenClick !== answer) {
-        //     lose()
-        // } else if (timer.time < 0) {
-        //     outOfTime()
-        // }
-
-        $("#optionsTwo").on("click", function() {
-            console.log("working 2");
-            // var chosenClick = this.event;
-            // if (chosenClick === answer){
-            //     win()
-            // } else if (chosenClick !== answer) {
-            //     lose()
-            // } else if (timer.time < 0) {
-            //     outOfTime()
-            // }
-        });
-
-    
-        $("#optionsThree").on("click", function() {
-            console.log("working 3");
-            // var chosenClick = this.event;
-            // if (chosenClick === answer){
-            //     win()
-            // } else if (chosenClick !== answer) {
-            //     lose()
-            // } else if (timer.time < 0) {
-            //     outOfTime()
-            // }
-        });
-
-        $("#optionsFour").on("click", function() {
-            console.log("working 4");
-            // var chosenClick = this.event;
-            // if (chosenClick === answer){
-            //     win()
-            // } else if (chosenClick !== answer) {
-            //     lose()
-            // } else if (timer.time < 0) {
-            //     outOfTime()
-            // }
-        });
-    })};
-
+    function checkClick() {
+    var chosenAnswer = $(this).attr("data-name");
+    if (chosenAnswer === answer){
+    win()
+    } else if (chosenAnswer !== answer) {
+    lose()
+    }
+};
 
     function win() {
         wins++
+        $("#wins").html(wins)
         console.log("you won!")
-        // wait 5 seconds
-        startTimer()
+        setTimeout(function() {startTimer()}, 5000)
         return wins
     }
     
     function lose() {
         losses++
+        $("#losses").html(losses)
         console.log("you lost!")
-        // wait 5 seconds
-        startTimer()
+        setTimeout(function() {startTimer()}, 5000)
         return losses
     }
     
     function outOfTime() {
         timeOut++
+        $("#timerBox").html("You're out of time!");
+        $("#timeout").html(timeOut)
         console.log("you ran out of time!")
-        // wait 5 seconds
-        startTimer()
-        return losses
+        setTimeout(function() {startTimer()}, 5000)
+        return timeOut
     }
 
 }); // jQuery Document Ready Closing
