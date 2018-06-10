@@ -26,6 +26,11 @@ body {
     border: 3px solid #86BBD8;
 }
 
+.scoreStyle {
+    border: 3px solid #86BBD8;
+}
+
+
 .row {
     margin: 10px;
 }
