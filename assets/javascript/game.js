@@ -192,13 +192,8 @@ function startTimer() {
     answer = questionList.answer[randNum]
     wrongOptions = questionList.options[randNum]
     options = [wrongOptions[0], wrongOptions[1], wrongOptions[2], answer]
-
-    console.log(options);
-    console.log(answer);
-    console.log(question);
-    console.log(wrongOptions);
-    console.log(randNum);
-    console.log(shuffleOptions(options))
+    $("#questionBox").html(question);
+    shuffleOptions(options);
 
     function shuffleOptions(options) {
     for (var i = options.length - 1; i > 0; i--) {
@@ -206,11 +201,19 @@ function startTimer() {
         var temp = options[i];
         options[i] = options[j];
         options[j] = temp;
+        $("#options").append(options);
         return options;
         };
     };
     
 };
+
+console.log(options);
+console.log(answer);
+console.log(question);
+console.log(wrongOptions);
+console.log(randNum);
+console.log(shuffleOptions(options))
     
 
 
