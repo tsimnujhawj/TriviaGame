@@ -45,14 +45,14 @@ var timer = {
 }
 
 var questionList = {
-    question: ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5",],
-    answer: ["Answer 1", "Answer 2", "Answer 3", "Answer 4", "Answer 5",],
+    question: ["What differentiates ducks from most other birds?", "How many species of duck are there?", "<img src='assets/images/duck_wu.jpg'>", "<img src='assets/images/duck_russ.jpg'>", "<img src='assets/images/duck_guy.jpg'>",],
+    answer: ["They swim well", "150", "Kenny Wu", "Russ Tyler", "Guy Germaine",],
     options: [
-        optionOne = ["Option 1", "Option 1", "Option 1",],
-        optionTwo = ["Option 2", "Option 2", "Option 2",],
-        optionThree = ["Option 3", "Option 3", "Option 3",],
-        optionFour = ["Option 4", "Option 4", "Option 4",],
-        optionFive = ["Option 5", "Option 5", "Option 5",],
+        optionOne = ["They fly long distances", "They're monogamous", "They have web feet",],
+        optionTwo = ["100", "250", "400",],
+        optionThree = ["Russ Tyler", "Charlie Conway", "Forest Whitaker",],
+        optionFour = ["Kenny Wu", "Luis Mendoza", "Jesse Hall",],
+        optionFive = ["Luis Mendoza", "Jesse Hall", "Charlie Conway",],
     ]
 }
 
@@ -114,9 +114,13 @@ function startTimer() {
 };
 
     function win() {
+        questionList.questions.splice(randNum);
+        questionList.answer.splice(randNum);
+        questionList.options.splice(randNum);
+        $("#options").hide();
         timer.stop();
         timer.time = 0;
-        wins++
+        wins += 1;
         $("#timerBox").html("You guessed RIGHT!");
         $("#wins").html(wins)
         setTimeout(function() {
@@ -130,9 +134,10 @@ function startTimer() {
     }
     
     function lose() {
+        $("#options").hide();
         timer.stop();
         timer.time = 0;
-        losses++
+        losses += 1;
         $("#timerBox").html("You guessed WRONG!");
         $("#losses").html(losses);
         setTimeout(function() {
@@ -149,7 +154,10 @@ function startTimer() {
     }
     
     function outOfTime() {
-        timeOut++;
+        $("#options").hide();
+        timer.stop();
+        timer.time = 0;
+        timeOut += 1;
         $("#timerBox").html("You're out of time!");
         $("#timeout").html(timeOut);
         setTimeout(function() {
