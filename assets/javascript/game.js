@@ -131,9 +131,9 @@ $("#options").hide()
 
 var interval;
 var clockrunning = false;
-var wins;
-var losses;
-var timeOut;
+var wins = 0;
+var losses = 0;
+var timeOut = 0;
 
 var randNum;
 var question;
@@ -159,6 +159,7 @@ var timer = {
         timer.time--;
         $("#timerBox").text(timer.time);
         if (timer.time < 0) {
+            timer.stop();
             outOfTime()
         }
     },
@@ -240,25 +241,39 @@ function startTimer() {
 
     function win() {
         wins++
+        $("#timerBox").html("You guessed RIGHT!");
         $("#wins").html(wins)
-        console.log("you won!")
-        setTimeout(function() {startTimer()}, 5000)
+        setTimeout(function() {
+        $("#timerBox").html("The next question is coming up...");
+    }, 1000);
+        setTimeout(function() {
+            timer.time = 30;
+            startTimer()
+        }, 8000)
         return wins
     }
     
     function lose() {
         losses++
-        $("#losses").html(losses)
-        console.log("you lost!")
-        setTimeout(function() {startTimer()}, 5000)
+        $("#timerBox").html("You guessed WRONG!");
+        $("#losses").html(losses);
+        setTimeout(function() {
+        $("#timerBox").html("The correct answer was " + answer + "!");
+        }, 1000);
+        setTimeout(function() {
+        $("#timerBox").html("The next question is coming up...");
+    }, 1000);
+        setTimeout(function() {
+            timer.time = 30;
+            startTimer()
+        }, 8000)
         return losses
     }
     
     function outOfTime() {
-        timer.stop();
-        timeOut++
+        timeOut++;
         $("#timerBox").html("You're out of time!");
-        $("#timeout").html(timeOut)
+        $("#timeout").html(timeOut);
         setTimeout(function() {
         $("#timerBox").html("The next question is coming up...");
         }, 1000)
@@ -266,6 +281,7 @@ function startTimer() {
             timer.time = 30;
             startTimer()
         }, 8000)
+        return timeOut;
     }
 
 }); // jQuery Document Ready Closing
