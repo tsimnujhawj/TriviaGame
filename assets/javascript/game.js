@@ -83,7 +83,7 @@ var questionList = [
     [ // Question 6
     quest = "What is the name of the famous formation the Ducks use?",
     answer = "The Flying V",
-    optionList = ["Luis Mendoza", "Jesse Hall", "Charlie Conway",],
+    optionList = ["The Mighty Ducks", "The Duck Dash", "The Sweeper",],
     ],
 
     [ // Question 7
@@ -190,7 +190,7 @@ function remove() {
         $("#options").hide();
         timer.stop();
         timer.time = 0;
-        wins += 1;
+        wins++;
         $("#timerBox").html("You guessed RIGHT!");
         $("#wins").html(wins)
         setTimeout(function() {
@@ -200,6 +200,8 @@ function remove() {
             timer.time = 30;
             startTimer()
         }, 8000)
+        chosenAnswer;
+        answer;
         return wins
     }
     
@@ -207,7 +209,7 @@ function remove() {
         $("#options").hide();
         timer.stop();
         timer.time = 0;
-        losses += 1;
+        losses++;
         $("#timerBox").html("You guessed WRONG!");
         $("#losses").html(losses);
         setTimeout(function() {
@@ -220,6 +222,8 @@ function remove() {
             timer.time = 30;
             startTimer()
         }, 8000)
+        chosenAnswer;
+        answer;
         return losses
     }
     
@@ -227,7 +231,7 @@ function remove() {
         $("#options").hide();
         timer.stop();
         timer.time = 0;
-        timeOut += 1;
+        timeOut++;
         $("#timerBox").html("You're out of time!");
         $("#timeout").html(timeOut);
         setTimeout(function() {
@@ -237,6 +241,8 @@ function remove() {
             timer.time = 30;
             startTimer()
         }, 8000)
+        chosenAnswer;
+        answer;
         return timeOut;
     }
 
