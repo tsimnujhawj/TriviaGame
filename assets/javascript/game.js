@@ -108,9 +108,18 @@ startTimer();
 });
 
 function startTimer() {
+    // if (questionList.length > -1) {
+
     timer.start()
     $("#timerBox").text("30");
     questions()
+    if (questionList.length > -1) {
+    console.log("there are more questions")
+    } else if (questionList.length < 0) {
+    timer.stop();
+    $("#questionBox").empty();
+    console.log("there are NO more questions")
+    }
     }
     
     function questions() {
@@ -120,7 +129,9 @@ function startTimer() {
     answer = randQuest[1];
     wrongOptions = randQuest[2];
     options = [wrongOptions[0], wrongOptions[1], wrongOptions[2], answer]
-    index = randQuest.indexOf(question);
+    index = questionList.indexOf(questionList[randNum]);
+    console.log(questionList.indexOf(questionList[randNum]));
+    remove();
     $("#questionBox").html(question);
 
     for (var i = options.length - 1; i > 0; i--) {
@@ -158,12 +169,11 @@ function startTimer() {
 };
 
 function remove() {
-    questionList.splice(index, randNum);
+    questionList.splice(index, 1);
     console.log(questionList)
 }
 
     function win() {
-        remove();
         $("#options").hide();
         timer.stop();
         timer.time = 0;
@@ -181,7 +191,6 @@ function remove() {
     }
     
     function lose() {
-        remove();
         $("#options").hide();
         timer.stop();
         timer.time = 0;
@@ -202,7 +211,6 @@ function remove() {
     }
     
     function outOfTime() {
-        remove();
         $("#options").hide();
         timer.stop();
         timer.time = 0;
