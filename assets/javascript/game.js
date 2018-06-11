@@ -48,53 +48,66 @@ var timer = {
     }
 }
 
-// var questionList = {
-//     question: ["What differentiates ducks from most other birds?", "How many species of duck are there?", "<img src='assets/images/duck_wu.jpg'>", "<img src='assets/images/duck_russ.jpg'>", "<img src='assets/images/duck_guy.jpg'>",],
-//     answer: ["They swim well", "150", "Kenny Wu", "Russ Tyler", "Guy Germaine",],
-//     options: [
-//         optionOne = ["They fly long distances", "They're monogamous", "They have web feet",],
-//         optionTwo = ["100", "250", "400",],
-//         optionThree = ["Russ Tyler", "Charlie Conway", "Forest Whitaker",],
-//         optionFour = ["Kenny Wu", "Luis Mendoza", "Jesse Hall",],
-//         optionFive = ["Luis Mendoza", "Jesse Hall", "Charlie Conway",],
-//     ]
-// }
-
 var questionList = [
 
     [ // Question 1
-    quest = "What differentiates ducks from most other birds?",
-    answer = "They swim well",
-    optionList = ["They fly long distances", "They're monogamous", "They have web feet",],
-    used = false,
+    quest = "What year was it when Gordon missed his important penalty shot?",
+    answer = "1973",
+    optionList = ["1976", "1981", "1983",],
     ],
 
     [ // Question 2
-    quest = "How many species of duck are there?",
-    answer = "150",
-    optionList = ["100", "250", "400",],
-    used = false,
+    quest = "What number did Gordon Bombay wear when he played hockey as a child?",
+    answer = "66",
+    optionList = ["99", "9", "6",],
     ],
 
     [ // Question 3
     quest = "<img src='assets/images/duck_wu.jpg'>",
     answer = "Kenny Wu",
     optionList = ["Russ Tyler", "Charlie Conway", "Forest Whitaker",],
-    used = false,
     ],
 
     [ // Question 4
     quest = "<img src='assets/images/duck_russ.jpg'>",
     answer = "Russ Tyler",
     optionList = ["Kenny Wu", "Luis Mendoza", "Jesse Hall",],
-    used = false,
     ],
 
     [ // Question 5
     quest = "<img src='assets/images/duck_guy.jpg'>",
     answer = "Guy Germaine",
     optionList = ["Luis Mendoza", "Jesse Hall", "Charlie Conway",],
-    used = false,
+    ],
+
+    [ // Question 6
+    quest = "What is the name of the famous formation the Ducks use?",
+    answer = "The Flying V",
+    optionList = ["Luis Mendoza", "Jesse Hall", "Charlie Conway",],
+    ],
+
+    [ // Question 7
+    quest = "The Ducks called Adam Banks a 'cake eater', what does that mean?",
+    answer = "He's from Edina",
+    optionList = ["He's French", "He's fat", "He's spoiled",],
+    ],
+
+    [ // Question 8
+    quest = "Coach Bombay takes on the team for community service. How many hours does he have to do?",
+    answer = "500",
+    optionList = ["300", "400", "600",],
+    ],
+
+    [ // Question 9
+    quest = "The rival team to the Ducks is the Hawks. What is the name of their coach?",
+    answer = "Jack Reilley",
+    optionList = ["Ted Orion", "Wolf Stansson", "Adam Banks",],
+    ],
+
+    [ // Question 10
+    quest = "Finish this quote from Coach Riley: 'It's not worth winning if you can't win __________!",
+    answer = "big",
+    optionList = ["fairly", "for yourself", "with honor",],
     ],
     
 ];
