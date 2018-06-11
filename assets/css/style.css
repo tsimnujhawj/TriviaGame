@@ -3,18 +3,26 @@
 }
 
 body {
-    background-color: #414141;
+    background-color: #22744c;
 }
 
 .container {
     text-align: center;
     width: 960px;
-    color: #FFFFFF;
+    color: #f7cf2f;
 }
 
 .headerStyle {
     /* border: 3px solid #2F4858; */
-    background-color: #336699;
+    background-color: #592570;
+    padding: 40px;
+    border: 5px double #f7cf2f;
+    border-radius: 5px;
+}
+
+.headerStyle h1 {
+    font-size: 45px;
+    font-weight: bold;
 }
 
 .timerStyle {
@@ -24,29 +32,31 @@ body {
 }
 
 .questionStyle {
-    border: 1px solid #86BBD8;
+    border: 5px double #f7cf2f;
     font-size: 30px;
     font-weight: bold;
-    color: #336699;
-    background-color: #FFFFFF;
-    border-radius: 20px;
+    color: #f7cf2f;
+    background-color: #271c23;
+    border-radius: 5px;
     padding: 20px;
 }
 
 .answerStyle {
-    border: 1px solid #86BBD8;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    color: #414141;
+    border: 5px double #f7cf2f;
+    background-color: #592570;
+    border-radius: 5px;
+    color: #f7cf2f;
     font-size: 20px;
     font-weight: bold;
 }
 
 .scoreStyle {
-    border: 3px solid #86BBD8;
+    border: 5px double #f7cf2f;
     margin: 0 auto;
     font-size: 20px;
     font-weight: bold;
+    border-radius: 5px;
+    background-color: #271c23;
 }
 
 
@@ -55,9 +65,17 @@ body {
 }
 
 #optionsOne, #optionsTwo, #optionsThree, #optionsFour {
-    border: 1px solid #336699;
+    border: 5px solid #22744c;
     margin: 10px auto;
     width: 25%;
     text-align: center;
     padding: 15px;
+    background-color: #271c23;
+    border-radius: 5px;
+}
+
+#optionsOne:hover, #optionsTwo:hover, #optionsThree:hover, #optionsFour:hover {
+    border: 5px solid #271c23;
+    background-color: #22744c;
+    cursor: pointer;
 }

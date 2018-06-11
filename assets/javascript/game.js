@@ -127,7 +127,7 @@ function startTimer() {
     $("#questionBox").empty();
     $("#timerBox").empty();
     $("#options").empty();
-    console.log("there are NO more questions")
+    $("#questionBox").html("You have completed the trivia!")
     } else if (questionList.length !== 0) {
     timer.start()
     $("#timerBox").text("30");
