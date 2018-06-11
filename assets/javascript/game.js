@@ -108,19 +108,19 @@ startTimer();
 });
 
 function startTimer() {
-    // if (questionList.length > -1) {
-
+    console.log(questionList.length)
+    if (questionList.length === 0) {
+    timer.stop();
+    $("#questionBox").empty();
+    $("#timerBox").empty();
+    $("#options").empty();
+    console.log("there are NO more questions")
+    } else if (questionList.length !== 0) {
     timer.start()
     $("#timerBox").text("30");
     questions()
-    if (questionList.length > -1) {
-    console.log("there are more questions")
-    } else if (questionList.length < 0) {
-    timer.stop();
-    $("#questionBox").empty();
-    console.log("there are NO more questions")
     }
-    }
+}
     
     function questions() {
     randNum = Math.floor(Math.random() * questionList.length);
